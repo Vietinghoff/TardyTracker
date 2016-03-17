@@ -12,7 +12,7 @@ namespace TardyTracker
 {
     public class getDataConnection
     {
-        public DataTable dataTableFill(string idNumber)
+        public DataTable dataTableFill(string idNumber) //fills a data table of one childs information from the xcel file that will be acting as the database
         {
 
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data source=" + @"C:\GitHubRepos\TardyTracker\TardyTracker\Tardy Tracker Spread Sheet.xls"
@@ -30,7 +30,7 @@ namespace TardyTracker
             return dt;
         }
 
-        public void dataTableSave(DataTable dataTable)
+     /*   public void dataTableSave(DataTable dataTable)
         {
             DataTable dt = new DataTable();
             dt = dataTable;
@@ -46,8 +46,9 @@ namespace TardyTracker
             objConnection.Close();
 
         }
+        */
 
-        public void dataCmdString(string qry)
+        public void dataCmdString(string qry) //allows me to send commands to the database, namely to update it on certain things like the amount of tardys that a child has and what date the offence occured. 
         {
             string command = qry;
 
@@ -61,6 +62,10 @@ namespace TardyTracker
             cmd.ExecuteNonQuery();
             objConnection.Close();
         }
+
+       
+
+        
     }
 
 
